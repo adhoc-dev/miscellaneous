@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record id="view_new_training_wizard_form" model="ir.ui.view">
+            <field name="name">Detail training</field>
+            <field name="model">training.new_training.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="New Training">
+                    <group>
+                        <field name="trainee_id"/>
+                            <field name="detail_ids">
+                            <tree editable="bottom">
+<!--                                 <field name="new_training_id"/> -->
+                                <field name="trainer_id"/>
+                                <field name="task_id"/>
+                            </tree>
+                        </field>
+                    </group>
+                    <footer>
+                        <button name="confirm" string="Confirm" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" special="cancel" class="oe_link"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        
+        <record id="action_new_training_wizard" model="ir.actions.act_window">
+            <field name="name">New Training</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">training.new_training.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+        
+        <menuitem
+                id="menu_new_training_wizard"
+                action="action_new_training_wizard"
+                parent="menu_parent_training"
+                sequence="20"/>
+    </data>
+</openerp>

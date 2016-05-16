@@ -1,0 +1,52 @@
+<openerp>
+    <data>
+        <record id="training_task_sale" model="training.task">
+            <field name="name">Sale</field>
+            <field name="type">view</field>
+<!--             <field name="state">template</field> -->
+        </record>
+        <record id="training_task_quotation" model="training.task">
+            <field name="name">Quotation</field>
+            <field name="type">view</field>
+            <field name="state">template</field>
+            <field name="parent_id" ref="training_task_sale"/>
+            <field name="description"></field>
+        </record>
+        <record id="training_task_introduction" model="training.task">
+            <field name="name">Introduction</field>
+            <field name="type">tutorial</field>
+            <field name="state">template</field>
+            <field name="parent_id" ref="training_task_sale"/>
+            <field name="url" ref="training_task_sale"/>
+            <field name="description">Un repaso general y completo por las diferentes funcionalidades del módulo de ventas</field>
+        </record>           
+        <record id="training_task_create_budget" model="training.task">
+            <field name="name">Creating a quotation</field>
+            <field name="type">exercise</field>
+            <field name="state">template</field>
+            <field name="parent_id" ref="training_task_quotation"/>
+            <field name="description">Join Sales/Quotes button then create</field>
+        </record>        
+        <record id="training_task_sale_order" model="training.task">
+            <field name="name">Sale Order</field>
+            <field name="type">view</field>
+            <field name="state">template</field>
+            <field name="parent_id" ref="training_task_sale"/>
+            <field name="description"></field>
+        </record>
+       <record id="training_task_product" model="training.task">
+            <field name="name">Product</field>
+            <field name="type">view</field>
+            <field name="state">template</field>
+            <field name="parent_id" ref="training_task_sale"/>
+            <field name="description"></field>
+        </record>       
+        <record id="training_task_product_create" model="training.task">
+            <field name="name">Creating product</field>
+            <field name="type">exercise</field>
+            <field name="state">template</field>
+            <field name="parent_id" ref="training_task_product"/>
+            <field name="description"></field>
+        </record>
+    </data>
+</openerp>

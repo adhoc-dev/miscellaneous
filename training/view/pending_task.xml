@@ -1,0 +1,35 @@
+<openerp>
+    <data>
+        <record id="view_training_task_pending_search" model="ir.ui.view">
+            <field name="name">view_training_task_pending_search</field>
+            <field name="model">training.task</field>
+            <field name="arch" type="xml">
+                <search>
+                    <filter name="pendind_task" string="Pending Task" domain="[('state', '!=', 'done')]"/>
+                </search>
+            </field>
+        </record>
+        <record id="view_training_task_tree_pending" model="ir.ui.view">
+            <field name="name">view_training_task_pending_tree</field>
+            <field name="model">training.task</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="state"/>
+                    <!-- <field name="start_date"/> -->
+                    <field name="url" widget="url" invisible="1"/>
+                    <button string="Done" type="object" name="action_state_done" attrs="{'invisible':[('state', '=', 'done')]}"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_training_task_pending" model="ir.actions.act_window">
+            <field name="name">action_training_taske_pending</field>
+            <field name="res_model">training.task</field>
+        </record>
+        <menuitem
+            id="menu_training_pending"
+            name="Pending"
+            action="action_training_task_pending"
+        />
+    </data>
+</openerp>
