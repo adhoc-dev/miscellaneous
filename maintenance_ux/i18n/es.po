@@ -22,7 +22,7 @@ msgstr ""
 #. module: maintenance_ux
 #: model:mail.template,subject:maintenance_ux.mail_template_maintenance_request_rating
 msgid "${object.name}: Service Rating Request"
-msgstr "${object.name}: Sr Rating Requeservisad asd"
+msgstr "${object.name}: Sr Rating Requeservisad asd arregladas"
 
 #. module: maintenance_ux
 #: model:mail.template,body_html:maintenance_ux.mail_template_maintenance_request_rating
