@@ -3,7 +3,7 @@
 # 	* maintenance_ux
 # 
 # Translators:
-# Juan José Scarafía <scarafia.juanjose@gmail.com>, 2022
+# Nicolas Mac Rouillon <nmr@ingadhoc.com>, 2022
 # 
 msgid ""
 msgstr ""
@@ -11,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-04-07 13:32+0000\n"
 "PO-Revision-Date: 2022-04-07 13:12+0000\n"
-"Last-Translator: Juan José Scarafía <scarafia.juanjose@gmail.com>, 2022\n"
+"Last-Translator: Nicolas Mac Rouillon <nmr@ingadhoc.com>, 2022\n"
 "Language-Team: Spanish (https://www.transifex.com/adhoc/teams/46451/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +22,7 @@ msgstr ""
 #. module: maintenance_ux
 #: model:mail.template,subject:maintenance_ux.mail_template_maintenance_request_rating
 msgid "${object.name}: Service Rating Request"
-msgstr "${object.name}: Sr Rating Requeservisad asd arregladas"
+msgstr "${object.name}: Sr Rating Requeservisad asd arregladas324242"
 
 #. module: maintenance_ux
 #: model:mail.template,body_html:maintenance_ux.mail_template_maintenance_request_rating
@@ -105,7 +105,7 @@ msgstr ""
 #. module: maintenance_ux
 #: model_terms:ir.ui.view,arch_db:maintenance_ux.maintenance_maintenance_request_view_form_inherit_rating
 msgid "Rating"
-msgstr ""
+msgstr "CalificaciÃ³n"
 
 #. module: maintenance_ux
 #: model:ir.actions.act_window,name:maintenance_ux.rating_rating_action_maintenance_request
