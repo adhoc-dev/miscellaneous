@@ -60,7 +60,7 @@ msgstr "Mensaje interno"
 #. module: mail_internal
 #: model:ir.model.fields,field_description:mail_internal.field_mail_compose_message__is_internal
 msgid "Send Internal Message"
-msgstr ""
+msgstr "Enviar mensaje interno"
 
 #. module: mail_internal
 #. openerp-web
