@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-name="mail.Composer.scheduleButton">
+        <button class="o-mail-Composer-send btn"
+            t-att-class="{
+                'btn-primary btn-sm': extended,
+                'btn-link p-1 rounded-pill': !extended,
+                'me-2': env.inDiscussApp,
+                'border-start-0': env.inDiscussApp and !props.composer.message,
+                'border-0': props.composer.message,
+            }"
+            t-on-click="sendScheduleMessage"
+            t-att-disabled="isSendButtonDisabled"
+            t-att-aria-label="SEND_TEXT"
+        >
+            <t t-if="thread and thread.model !== 'discuss.channel'" t-out="SEND_TEXT"/>
+            <t t-else=""><i class="fa fa-fw fa-paper-plane-o"/></t>
+        </button>
+    </t>
+
+
+    <t t-inherit="mail.Composer.sendButton" t-inherit-mode="extension">
+        <button position='attributes'>
+           <attribute name="t-on-click">sendScheduleMessage</attribute>
+        </button>
+    </t>
+</templates>
