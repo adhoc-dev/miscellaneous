@@ -37,6 +37,7 @@
         'mail',
     ],
     'data': [
+        'views/res_users_views.xml',
     ],
     'demo': [
     ],

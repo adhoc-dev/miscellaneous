@@ -9,7 +9,7 @@ class MailComposeMessage(models.TransientModel):
         """
         Heredado para incluir un retraso de 30 segundos al enviar mensajes.
         """
-        scheduled_date = datetime.now() + timedelta(seconds=30)
+        scheduled_date = datetime.now() + timedelta(seconds=self.env.user.send_message_delay)
         result_mails_su, result_messages = super(MailComposeMessage, self)._action_send_mail(auto_commit=auto_commit)
         if self.composition_mode != 'mass_mail':
             for wizard in self:

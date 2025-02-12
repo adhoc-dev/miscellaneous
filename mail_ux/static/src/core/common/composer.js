@@ -2,6 +2,7 @@ import { Composer } from "@mail/core/common/composer";
 import { patch } from "@web/core/utils/patch";
 import { useService } from "@web/core/utils/hooks";
 import { user } from "@web/core/user";
+import { session } from "@web/session";
 
 import {
     toRaw,
@@ -13,6 +14,8 @@ patch(Composer.prototype, {
         super.setup();
         this.actionService = useService("action");
         this.orm = useService("orm");
+        console.log('cccc')
+        console.log(session.send_message_delay)
     },
     async sendScheduleMessage() {
         const composer = toRaw(this.props.composer);
@@ -25,7 +28,7 @@ patch(Composer.prototype, {
         });
     },
     async _sendScheduleMessage(value, postData, extraData) {
-        if (postData.isNote){
+        if (!session.send_message_delay){
             return await this._sendMessage(value, postData, extraData);
         }
 
@@ -40,7 +43,7 @@ patch(Composer.prototype, {
             const body = value;
             const params = await this.store.getMessagePostParams({ body, postData, thread: thread });
             const scheduledDate = new Date();
-            scheduledDate.setSeconds(scheduledDate.getSeconds() + 30);
+            scheduledDate.setSeconds(scheduledDate.getSeconds() + session.send_message_delay);
 
             const formattedScheduledDate = scheduledDate.toISOString().slice(0, 19).replace("T", " ");
             await this.orm.call("mail.scheduled.message", 'create', [
@@ -50,9 +53,10 @@ patch(Composer.prototype, {
                 'body': body,
                 'model': postThread.model,
                 'res_id': postThread.id,
+                'is_note': postData.isNote,
                 'partner_ids': params.post_data.partner_ids || [],
                 'scheduled_date': formattedScheduledDate,
-                'notification_parameters': '{}',
+                'notification_parameters': JSON.stringify(params.post_data),
             }])
         }
     }
