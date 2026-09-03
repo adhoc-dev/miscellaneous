@@ -19,7 +19,7 @@
 ##############################################################################
 {
     "name": "Route Line Test",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "category": "Technical",
     "author": "ADHOC SA",
     "website": "https://www.adhoc.com.ar",
